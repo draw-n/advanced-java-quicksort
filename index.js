@@ -6,26 +6,40 @@ let slider = document.getElementById("slider");
 let minRange = 5;
 let maxRange = 99;
 let numOfBars = slider.value;
-let heightFactor = 4;
-let speedFactor = 100;
-let unsorted_array = new Array(numOfBars);
-
+let heightFactor = 10;
+let speedFactor = 3000;
+let unsorted_array = Array.from({length:numOfBars},(v,k)=>50 - k);
+console.log(unsorted_array);
 slider.addEventListener("input", function () {
   numOfBars = slider.value;
   maxRange = slider.value;
   //console.log(numOfBars);
   bars_container.innerHTML = "";
-  unsorted_array = createRandomArray();
+  unsorted_array = shuffleArray(unsorted_array);
   renderBars(unsorted_array);
 });
 
 speed.addEventListener("change", (e) => {
-  speedFactor = parseInt(e.target.value);
+  speedFactor = e.target.value;
 });
 
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function shuffleArray() {
+    array = Array.from({length:numOfBars},(v,k)=>50 - k + 5);
+    let j;
+    let n = array.length;
+    for (let i = 0; i < n - 2; i++) {
+        j = randomNum(i, n-1);
+        [array[i], array[j]] = [
+            array[j], array[i]];
+    }
+    
+    return array;
+}
+
 
 function createRandomArray() {
   let array = new Array(numOfBars);
@@ -37,7 +51,7 @@ function createRandomArray() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  unsorted_array = createRandomArray();
+  unsorted_array = shuffleArray(unsorted_array);
   renderBars(unsorted_array);
 });
 
@@ -46,14 +60,14 @@ function renderBars(array) {
     let bar = document.createElement("div");
     bar.classList.add("bar");
     bar.style.height = array[i] * heightFactor + "px";
-    bar.innerText = array[i];
+    bar.innerText = array[i] - 5;
     bar.style.alignSelf = "flex-end";
     bars_container.appendChild(bar);
   }
 }
 
 randomize_array.addEventListener("click", function () {
-  unsorted_array = createRandomArray();
+  unsorted_array = shuffleArray(unsorted_array);
   bars_container.innerHTML = "";
   renderBars(unsorted_array);
 });
@@ -138,6 +152,8 @@ async function swap(array, i, j, bars) {
   bars[j].style.height = array[j] * heightFactor + "px";
   bars[i].style.backgroundColor = "red";
   bars[j].style.backgroundColor = "red";
+  bars[i].innerText = array[i] - 5;
+  bars[j].innerText = array[j] - 5;
   await sleep(speedFactor);
 
   for (let k = 0; k < bars.length; k++) {
@@ -145,8 +161,7 @@ async function swap(array, i, j, bars) {
       bars[k].style.backgroundColor = "aqua";
     }
   }
-  bars[i].innerText = array[i];
-  bars[j].innerText = array[j];
+
   return array;
 }
 
