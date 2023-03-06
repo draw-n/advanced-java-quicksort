@@ -54,8 +54,13 @@ a {
     cursor: pointer;
     text-align: center;
     transition:  0.2s ease-in-out;
+    margin: 10px 0;
 }
 
 button:hover{
     background-color: #56697b;
+}
+
+.description {
+    margin: 20px;
 }

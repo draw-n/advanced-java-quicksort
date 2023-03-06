@@ -168,3 +168,4 @@ async function swap(array, i, j, bars) {
 sort_btn.addEventListener("click", function () {
   quickSort(unsorted_array, 0, unsorted_array.length - 1);
 });
+
