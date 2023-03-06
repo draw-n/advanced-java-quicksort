@@ -10,19 +10,18 @@
   <body>
     <div class="container">
       <h1>Quicksort Visualization</h1>
-      <p><a href="https://github.com/Kazuya-san/Sorting-Visualizer" target="_blank">Tutorial/Source Code</a></p>
+      <p>
+        <a
+          href="https://github.com/Kazuya-san/Sorting-Visualizer"
+          target="_blank"
+          >Tutorial/Source Code</a
+        >
+      </p>
       <div class="bars_container" id="bars_container"></div>
 
       <div class="buttons_container">
         <!-- <label for="slider">Array Size:</label> -->
-        <input
-          type="range"
-          id="slider"
-          min="1"
-          max="50"
-          step="1"
-          value="50"
-        />
+        <input type="range" id="slider" min="1" max="50" step="1" value="50" />
 
         <select name="" id="speed">
           <option value="50">Fast</option>
@@ -31,6 +30,40 @@
         </select>
         <button id="randomize_array_btn">Shuffle Array</button>
         <button id="sort_btn">Sort</button>
+      </div>
+      <h2>About Quicksort</h2>
+      <div class="description">
+        <p>
+          "Quicksort is an efficient, general-purpose sorting algorithm.
+          Quicksort was developed by British computer scientist Tony Hoare in
+          1959 and published in 1961. It is still a commonly used algorithm for
+          sorting. Overall, it is slightly faster than merge sort and heapsort
+          for randomized data, particularly on larger distributions.
+        </p>
+        <br>
+        <p>
+          Quicksort is a divide-and-conquer algorithm. It works by selecting a
+          'pivot' element from the array and partitioning the other elements
+          into two sub-arrays, according to whether they are less than or
+          greater than the pivot. For this reason, it is sometimes called
+          partition-exchange sort. The sub-arrays are then sorted recursively.
+          This can be done in-place, requiring small additional amounts of
+          memory to perform the sorting.
+        </p>
+        <br>
+        <p>
+          Quicksort is a comparison sort, meaning that it can sort items of any
+          type for which a "less-than" relation (formally, a total order) is
+          defined. Most implementations of quicksort are not stable, meaning
+          that the relative order of equal sort items is not preserved.
+        </p>
+        <br />
+        <p>
+          Mathematical analysis of quicksort shows that, on average, the
+          algorithm takes O(nlog(n)) comparisons to sort n items. In the worst
+          case, it makes O(n<sup>2</sup>) comparisons." -
+          <a href="https://en.wikipedia.org/wiki/Quicksort">Wikipedia</a>
+        </p>
       </div>
     </div>
 
