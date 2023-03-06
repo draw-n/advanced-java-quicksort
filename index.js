@@ -7,7 +7,7 @@ let minRange = 5;
 let maxRange = 99;
 let numOfBars = slider.value;
 let heightFactor = 10;
-let speedFactor = 3000;
+let speedFactor = 50;
 let unsorted_array = Array.from({length:numOfBars},(v,k)=>50 - k);
 console.log(unsorted_array);
 slider.addEventListener("input", function () {
@@ -79,10 +79,10 @@ function sleep(ms) {
 async function partition(arr, low, high) {
   let bars = document.getElementsByClassName("bar");
   let pivot = arr[high];
-  bars[high].style.backgroundColor = "red";
+  bars[high].style.backgroundColor = "#f95959";
   for (let i = 0; i < bars.length; i++) {
     if (i != high) {
-      bars[i].style.backgroundColor = "aqua";
+      bars[i].style.backgroundColor = "#455d7a";
     }
   }
   let i = low - 1;
@@ -107,7 +107,7 @@ async function quickSort(arr, low, high) {
     await quickSort(arr, low, pivot - 1);
     await quickSort(arr, pivot + 1, high);
     for (let i = 0; i < bars.length; i++) {
-        bars[i].style.backgroundColor = "aqua";
+        bars[i].style.backgroundColor = "#455d7a";
       }
   /*if (arr.length > 1) {
     let pivot = await partition(arr, low, high);
@@ -150,15 +150,15 @@ async function swap(array, i, j, bars) {
   array[j] = temp;
   bars[i].style.height = array[i] * heightFactor + "px";
   bars[j].style.height = array[j] * heightFactor + "px";
-  bars[i].style.backgroundColor = "red";
-  bars[j].style.backgroundColor = "red";
+  bars[i].style.backgroundColor = "#f95959";
+  bars[j].style.backgroundColor = "#f95959";
   bars[i].innerText = array[i] - 5;
   bars[j].innerText = array[j] - 5;
   await sleep(speedFactor);
 
   for (let k = 0; k < bars.length; k++) {
     if (k != i && k != j) {
-      bars[k].style.backgroundColor = "aqua";
+      bars[k].style.backgroundColor = "#455d7a";
     }
   }
 

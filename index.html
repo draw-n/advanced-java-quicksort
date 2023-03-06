@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Sorting Visualizer</title>
+    <title>Quicksort Visualization</title>
   </head>
   <body>
     <div class="container">
+      <h1>Quicksort Visualization</h1>
+      <p><a href="https://github.com/Kazuya-san/Sorting-Visualizer" target="_blank">Tutorial/Source Code</a></p>
       <div class="bars_container" id="bars_container"></div>
 
       <div class="buttons_container">
@@ -23,11 +25,11 @@
         />
 
         <select name="" id="speed">
-          <option value="3000">Slow</option>
-          <option value="100">Medium</option>
           <option value="50">Fast</option>
+          <option value="100">Medium</option>
+          <option value="1000">Slow</option>
         </select>
-        <button id="randomize_array_btn">Randomize Array</button>
+        <button id="randomize_array_btn">Shuffle Array</button>
         <button id="sort_btn">Sort</button>
       </div>
     </div>
